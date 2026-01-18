@@ -9,6 +9,7 @@ Plug 'dense-analysis/ale'
 
 call plug#end()
 
+
 " ================== General Settings ==================
 set number
 set relativenumber
@@ -16,9 +17,11 @@ set clipboard=unnamedplus
 set mouse=a
 set signcolumn=yes
 
+
 " ================== Syntax & Filetype ==================
 syntax on
 filetype plugin indent on
+
 
 " ================== Completion ==================
 set completeopt=menuone,noinsert,noselect
@@ -26,32 +29,57 @@ set completeopt=menuone,noinsert,noselect
 " Disable noisy Coc startup warning
 let g:coc_disable_startup_warning = 1
 
+
 " ================== Colors ==================
 set termguicolors
 
+" ---- Line numbers (LEFT SIDE) ----
+highlight LineNr        guifg=#fbc02d guibg=NONE
+highlight CursorLineNr  guifg=#fff176 guibg=NONE gui=bold
+
+
 " ---- CoC floating popup ----
-highlight CocFloating        guifg=#dddddd guibg=#2e2e2e
-highlight CocFloatingBorder  guifg=#777777 guibg=#2e2e2e
-highlight CocPumSearch       guifg=#f1fa8c guibg=#2e2e2e
-highlight CocMenuSel         guifg=#ffffff guibg=#ff5555 gui=bold
+highlight CocFloating        guifg=#e6e6e6 guibg=#1e1e1e
+highlight CocFloatingBorder  guifg=#4caf50 guibg=#1e1e1e
+highlight CocPumSearch       guifg=#ff5555 guibg=#1e1e1e
+highlight CocMenuSel         guifg=#ffffff guibg=#d32f2f gui=bold
 
 " ---- CoC inlay hints ----
-highlight CocInlayHint guifg=#bd93f9 guibg=#2e2e2e gui=bold
-highlight CocHint      guifg=#bd93f9 guibg=#2e2e2e gui=bold
+highlight CocInlayHint guifg=#66bb6a guibg=NONE gui=italic
+highlight CocHint      guifg=#66bb6a guibg=NONE gui=italic
 
 " ---- CoC unused variables ----
 highlight CocUnusedHighlight guifg=#777777 guibg=NONE gui=italic
 highlight CocUnused          guifg=#777777 guibg=NONE gui=italic
 
-" ---- Language colors ----
-highlight String       guifg=#ff5555 guibg=NONE gui=bold
-highlight Number       guifg=#bd93f9 guibg=NONE
-highlight Constant     guifg=#bd93f9 guibg=NONE
-highlight Type         guifg=#8be9fd guibg=NONE gui=bold
-highlight Identifier   guifg=#8be9fd guibg=NONE
-highlight Statement    guifg=#ffb86c guibg=NONE gui=bold
-highlight Keyword      guifg=#ffb86c guibg=NONE gui=bold
-highlight StorageClass guifg=#ffb86c guibg=NONE gui=bold
+
+" ================== Language colors ==================
+
+" Strings (red)
+highlight String       guifg=#ef5350 guibg=NONE gui=bold
+
+" Numeric literals (green)
+highlight Number       guifg=#66bb6a guibg=NONE
+highlight Constant     guifg=#66bb6a guibg=NONE
+
+" Class / type names (teal)
+highlight Type         guifg=#26c6da guibg=NONE gui=bold
+highlight Structure   guifg=#26c6da guibg=NONE gui=bold
+highlight Typedef     guifg=#26c6da guibg=NONE gui=bold
+
+" Identifiers (variables, methods)
+highlight Identifier   guifg=#a5d6a7 guibg=NONE
+
+" Statements / control flow (red)
+highlight Statement    guifg=#e53935 guibg=NONE gui=bold
+highlight Keyword      guifg=#e53935 guibg=NONE gui=bold
+highlight StorageClass guifg=#e53935 guibg=NONE gui=bold
+
+
+" ---- Java class names ----
+highlight javaClassDecl guifg=#26c6da gui=bold
+highlight javaClassName guifg=#26c6da gui=bold
+
 
 " ================== CoC control ==================
 " CoC ONLY for Java
@@ -61,22 +89,24 @@ augroup CocByFiletype
   autocmd FileType java silent! CocEnable
 augroup END
 
+
 " ================== ALE (GCC via cc) ==================
 
-" Let ALE run normally
 let g:ale_enabled = 1
 
-" Use cc (maps to gcc automatically)
 let g:ale_linters = {
 \ 'c':   ['cc'],
 \ 'cpp': ['g++'],
 \}
 
-" Lint on save only (reliable with gcc)
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 
-" Warnings / extra flags
-let g:ale_c_cc_options = '-std=c11 -Wall -Wextra -Wpedantic'
+let g:ale_c_cc_options    = '-std=c11 -Wall -Wextra -Wpedantic'
 let g:ale_cpp_gcc_options = '-Wall -Wextra -Wpedantic'
+
+
+" ================== ALE Colors ==================
+highlight ALEError   guifg=#ff1744 gui=bold
+highlight ALEWarning guifg=#76ff03 gui=bold
