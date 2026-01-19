@@ -25,64 +25,68 @@ filetype plugin indent on
 
 " ================== Completion ==================
 set completeopt=menuone,noinsert,noselect
-
-" Disable noisy Coc startup warning
 let g:coc_disable_startup_warning = 1
 
 
 " ================== Colors ==================
 set termguicolors
+set background=dark
 
-" ---- Line numbers (LEFT SIDE) ----
-highlight LineNr        guifg=#fbc02d guibg=NONE
-highlight CursorLineNr  guifg=#fff176 guibg=NONE gui=bold
+" ---- Gruvbox background ----
+highlight Normal guifg=#ebdbb2 guibg=#282828
 
-
-" ---- CoC floating popup ----
-highlight CocFloating        guifg=#e6e6e6 guibg=#1e1e1e
-highlight CocFloatingBorder  guifg=#4caf50 guibg=#1e1e1e
-highlight CocPumSearch       guifg=#ff5555 guibg=#1e1e1e
-highlight CocMenuSel         guifg=#ffffff guibg=#d32f2f gui=bold
-
-" ---- CoC inlay hints ----
-highlight CocInlayHint guifg=#66bb6a guibg=NONE gui=italic
-highlight CocHint      guifg=#66bb6a guibg=NONE gui=italic
-
-" ---- CoC unused variables ----
-highlight CocUnusedHighlight guifg=#777777 guibg=NONE gui=italic
-highlight CocUnused          guifg=#777777 guibg=NONE gui=italic
+" ---- Line numbers ----
+highlight LineNr       guifg=#d79921 guibg=#282828
+highlight CursorLineNr guifg=#fabd2f guibg=#282828 gui=bold
 
 
-" ================== Language colors ==================
-
-" Strings (red)
-highlight String       guifg=#ef5350 guibg=NONE gui=bold
-
-" Numeric literals (green)
-highlight Number       guifg=#66bb6a guibg=NONE
-highlight Constant     guifg=#66bb6a guibg=NONE
-
-" Class / type names (teal)
-highlight Type         guifg=#26c6da guibg=NONE gui=bold
-highlight Structure   guifg=#26c6da guibg=NONE gui=bold
-highlight Typedef     guifg=#26c6da guibg=NONE gui=bold
-
-" Identifiers (variables, methods)
-highlight Identifier   guifg=#a5d6a7 guibg=NONE
-
-" Statements / control flow (red)
-highlight Statement    guifg=#e53935 guibg=NONE gui=bold
-highlight Keyword      guifg=#e53935 guibg=NONE gui=bold
-highlight StorageClass guifg=#e53935 guibg=NONE gui=bold
+" ================== Popup / UI ==================
+highlight CocFloating        guifg=#ebdbb2 guibg=#3c3836
+highlight CocFloatingBorder  guifg=#928374 guibg=#3c3836
+highlight CocPumSearch       guifg=#fabd2f guibg=#3c3836
+highlight CocMenuSel         guifg=#282828 guibg=#fabd2f gui=bold
 
 
-" ---- Java class names ----
-highlight javaClassDecl guifg=#26c6da gui=bold
-highlight javaClassName guifg=#26c6da gui=bold
+" ================== CoC Hints ==================
+highlight CocInlayHint guifg=#83a598 guibg=NONE gui=italic
+highlight CocHint      guifg=#83a598 guibg=NONE gui=italic
+
+highlight CocUnusedHighlight guifg=#928374 guibg=NONE gui=italic
+highlight CocUnused          guifg=#928374 guibg=NONE gui=italic
+
+
+" ================== Language colors (Gruvbox style) ==================
+
+" Strings (green)
+highlight String guifg=#b8bb26 guibg=NONE
+
+" Numbers / constants (purple)
+highlight Number   guifg=#d3869b guibg=NONE
+highlight Constant guifg=#d3869b guibg=NONE
+
+" Keywords / control flow (orange)
+highlight Keyword      guifg=#fe8019 guibg=NONE gui=bold
+highlight Statement    guifg=#fe8019 guibg=NONE gui=bold
+highlight StorageClass guifg=#fe8019 guibg=NONE gui=bold
+
+" Types / class names (yellow)
+highlight Type       guifg=#fabd2f guibg=NONE gui=bold
+highlight Structure guifg=#fabd2f guibg=NONE gui=bold
+highlight Typedef   guifg=#fabd2f guibg=NONE gui=bold
+
+" Identifiers (aqua)
+highlight Identifier guifg=#83a598 guibg=NONE
+
+" Comments (gray)
+highlight Comment guifg=#928374 guibg=NONE gui=italic
+
+
+" ================== Java class names ==================
+highlight javaClassDecl guifg=#fabd2f gui=bold
+highlight javaClassName guifg=#fabd2f gui=bold
 
 
 " ================== CoC control ==================
-" CoC ONLY for Java
 augroup CocByFiletype
   autocmd!
   autocmd FileType c,cpp silent! CocDisable
@@ -90,8 +94,7 @@ augroup CocByFiletype
 augroup END
 
 
-" ================== ALE (GCC via cc) ==================
-
+" ================== ALE ==================
 let g:ale_enabled = 1
 
 let g:ale_linters = {
@@ -108,5 +111,5 @@ let g:ale_cpp_gcc_options = '-Wall -Wextra -Wpedantic'
 
 
 " ================== ALE Colors ==================
-highlight ALEError   guifg=#ff1744 gui=bold
-highlight ALEWarning guifg=#76ff03 gui=bold
+highlight ALEError   guifg=#fb4934 gui=bold
+h
