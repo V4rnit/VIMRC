@@ -77,9 +77,8 @@ highlight Typedef   guifg=#fabd2f guibg=NONE gui=bold
 " Identifiers (aqua)
 highlight Identifier guifg=#83a598 guibg=NONE
 
-" Comments (gray)
-highlight Comment guifg=#928374 guibg=NONE gui=italic
-
+" Comments (pink)
+highlight Comment guifg=#ff5f87 guibg=NONE gui=bold,italic
 
 " ================== Java class names ==================
 highlight javaClassDecl guifg=#fabd2f gui=bold
@@ -112,4 +111,4 @@ let g:ale_cpp_gcc_options = '-Wall -Wextra -Wpedantic'
 
 " ================== ALE Colors ==================
 highlight ALEError   guifg=#fb4934 gui=bold
-h
+highlight ALEWarning guifg=#fabd2f gui=bold
